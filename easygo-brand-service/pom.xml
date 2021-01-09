@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>easygo-service</artifactId>
+    <artifactId>easygo-brand-service</artifactId>
 
     <dependencies>
         <dependency>
