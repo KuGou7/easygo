@@ -13,6 +13,13 @@
         <module>easygo-pojo</module>
     </modules>
 
+    <properties>
+        <java.version>1.8</java.version>
+        <!--spring-cloud版本 但是如果第一次使用的，Maven会下载一下-->
+        <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
+    </properties>
+
+
     <!--springboot依赖-->
     <parent>
         <groupId>org.springframework.boot</groupId>

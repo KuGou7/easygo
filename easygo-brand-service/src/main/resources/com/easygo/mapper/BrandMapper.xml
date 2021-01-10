@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.easygo.mapper.BrandMapper">
+    <sql id="selectBrandSql">
+        select * from tb_brand where del = '0'
+    </sql>
+
+    <select id="selectBrandList" parameterType="Brand" resultType="Brand">
+        <include refid="selectBrandSql"></include>
+
+        <if test="name !=null and name != ''">and name = #{name}</if>
+        <if test="image !=null and image != ''">and image = #{image}</if>
+        <if test="firstChar !=null and firstChar != ''">and first_Char = #{firstChar}</if>
+
+    </select>
+
+    <select id="selectBrandById" parameterType="Integer" resultType="Brand">
+        <include refid="selectBrandSql"></include>
+        and id = #{id}
+    </select>
+
+    <insert id="insertBrand" parameterType="Brand">
+        insert into tb_brand(name,image,first_Char) values(#{name},#{image},#{firstChar})
+    </insert>
+
+    <update id="updateBrand">
+        update tb_brand
+           set name = #{name},image = #{image},first_Char = #{firstChar}
+          where id = #{id}
+    </update>
+
+    <delete id="deleteBrandById">
+        update tb_brand set del = "1" where id = #{id}
+    </delete>
+</mapper>
